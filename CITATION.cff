@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite the article when using this software."
+title: "Analysis code for circular RNA associations in a glioblastoma multi-omic cohort"
+authors:
+  - family-names: Dogan
+    given-names: Senol
+    orcid: "https://orcid.org/0000-0001-7358-4850"
+    email: Senol.Dogan@medizin.uni-leipzig.de
+    affiliation: "Leipzig University"
+  - family-names: Schnauß
+    given-names: Jörg
+    orcid: "https://orcid.org/0000-0002-6408-8676"
+  - family-names: Leopold
+    given-names: Marvin
+  - family-names: Kirsten
+    given-names: Toralf
+    orcid: "https://orcid.org/0000-0001-7117-4268"
+license: MIT
+repository-code: "https://github.com/ul-mds/circular-RNA-in-Glioblastoma"
+keywords:
+  - circular RNA
+  - glioblastoma
+  - CPTAC
+  - co-expression
+  - multi-omics
+version: "1.0.0"
+date-released: "2026-10-12"

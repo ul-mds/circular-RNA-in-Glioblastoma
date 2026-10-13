@@ -1,0 +1,67 @@
+
+RobustScaler: features with IQR==0 (sklearn falls back to scale=1, i.e. NOT standardised): 2999 of 3670
+features retained after std>0.01: 3597
+k-means silhouette / cluster sizes (original preprocessing): {2: (0.897, [97, 1]), 3: (0.692, [96, 1, 1]), 4: (0.402, [4, 92, 1, 1]), 5: (0.422, [2, 88, 1, 6, 1])}
+re-run labels vs Supp.16 :  kmeans ARI=1.00 hier ARI=1.00 nmf ARI=1.00
+sizes  kmeans: [97, 1]  hier: [97, 1]  nmf: [95, 3]
+
+Pairwise ARI between the three methods: {'kmea-hier': 1.0, 'kmea-nmf_': 0.48, 'hier-nmf_': 0.48}
+  kmeans_subtype: minority-cluster members = ['C3N-01334']
+  hierarchical_subtype: minority-cluster members = ['C3N-01334']
+  nmf_subtype: minority-cluster members = ['C3L-01045', 'C3L-02704', 'C3N-01334']
+
+PCA variance explained (original preprocessing) PC1-5: [64.1, 5.6, 4.9, 3.5, 2.0]
+Spearman PC1 vs #detected circRNAs: rho=-0.56; PC1 vs total signal: rho=-0.58
+
+Subtype-1 (NMF) members, QC percentile ranks among 98 samples:
+           n_detected  total_signal  max_single_circ  pct_rank_detected  pct_rank_total  pca_dist_rank_pct
+C3L-01045         426        2277.0            306.4               33.7            41.8               76.5
+C3L-02704         198        1265.4            220.8                3.1             7.1               80.6
+C3N-01334         460        4309.9           1187.1               40.8            94.9              100.0
+            AGE     SEX VITAL_STATUS  PATH_DIAG_TO_DEATH_DAYS  PATH_DIAG_TO_LAST_CONTACT_DAYS
+PATIENT_ID                                                                                   
+C3L-01045    73  Female     Deceased                     66.0                             0.0
+C3L-02704    54    Male       Living                      NaN                           186.0
+C3N-01334    64  Female     Deceased                      7.0                             7.0
+
+Top circRNAs by robust-z in minority samples (value, cohort max, #samples detected):
+  C3L-01045 [('chr7_50669722_50703908_GRB10', np.float64(19.3), np.float64(1187.1), 11), ('chr7_50669722_50705323_GRB10', np.float64(15.4), np.float64(465.2), 6), ('chr22_38494630_38501280_DDX17', np.float64(13.3), np.float64(30.4), 20)]
+  C3L-02704 [('chr7_51190850_51193589_COBL', np.float64(220.8), np.float64(220.8), 2), ('chr17_63193991_63200957_TANC2', np.float64(23.3), np.float64(31.7), 18), ('chr7_50669722_50703908_GRB10', np.float64(11.2), np.float64(1187.1), 11)]
+  C3N-01334 [('chr7_50669722_50703908_GRB10', np.float64(1187.1), np.float64(1187.1), 11), ('chr7_50669722_50705323_GRB10', np.float64(465.2), np.float64(465.2), 6), ('chr7_50669722_50674658_GRB10', np.float64(442.1), np.float64(442.1), 7)]
+
+[RF leave-one-out] accuracy=0.9694 balanced_acc=0.500 MCC=0.000
+   confusion matrix [[TN(0->0), 0->1],[1->0, TP(1->1)]]: [[95, 0], [3, 0]]
+   class 0: precision=0.969 recall(sens)=1.000 F1=0.984 n=95
+   class 1: precision=0.000 recall(sens)=0.000 F1=0.000 n=3   specificity(class1)=1.000
+   majority-class baseline accuracy (always predict class 0): 0.9694
+
+[RF 3-fold stratified x10 (pooled)] accuracy=0.9694 balanced_acc=0.500 MCC=0.000
+   confusion matrix [[TN(0->0), 0->1],[1->0, TP(1->1)]]: [[950, 0], [30, 0]]
+   class 0: precision=0.969 recall(sens)=1.000 F1=0.984 n=950
+   class 1: precision=0.000 recall(sens)=0.000 F1=0.000 n=30   specificity(class1)=1.000
+   permutation test (3-fold, 100 perms): observed balanced acc=0.500; null mean=0.500 (max 0.500); p=1.000
+
+[4] Robust preprocessing: log2(x+1), circRNAs detected in >=20% samples (782), z-scored
+   k=2  kmeans sil=0.095 sizes=[39, 59] | Ward sil=0.095 sizes=[36, 62]
+   k=3  kmeans sil=0.038 sizes=[26, 12, 60] | Ward sil=0.027 sizes=[36, 10, 52]
+   k=4  kmeans sil=0.028 sizes=[20, 16, 44, 18] | Ward sil=0.033 sizes=[12, 24, 10, 52]
+   k=5  kmeans sil=0.030 sizes=[13, 13, 24, 40, 8] | Ward sil=0.022 sizes=[12, 24, 10, 13, 39]
+   k=6  kmeans sil=0.021 sizes=[7, 30, 24, 20, 5, 12] | Ward sil=0.023 sizes=[12, 24, 10, 13, 9, 30]
+   PCA variance PC1-5 (%): [14.3, 4.3, 3.9, 3.2, 2.3] | PC1 vs #detected rho=0.96
+   Consensus clustering (300 subsamples, 80% samples x 80% features):
+      k=2: PAC (ambiguous pairs, lower=more stable) = 0.252
+      k=3: PAC (ambiguous pairs, lower=more stable) = 0.687
+      k=4: PAC (ambiguous pairs, lower=more stable) = 0.661
+      k=5: PAC (ambiguous pairs, lower=more stable) = 0.631
+      k=6: PAC (ambiguous pairs, lower=more stable) = 0.612
+   bootstrap ARI of k=2 k-means: original preprocessing mean=0.61 (median 1.00, <0.5 in 39%);  robust preprocessing mean=0.81 (median 0.82, <0.5 in 3%)
+   (published Supp.9 bootstrap ARI: mean=0.32, median=0.23, ARI<0.5 in 64% of 100 runs)
+
+[5] Agreement between circRNA clusters and mRNA / protein clusters (top-2000 MAD features)
+   k=2 silhouette: circ=0.09 mRNA=0.12 protein=0.17 | ARI circ-mRNA=0.04 circ-protein=0.08 mRNA-protein=0.57 | orig NMF vs mRNA=-0.00 vs protein=-0.01
+   k=3 silhouette: circ=0.04 mRNA=0.10 protein=0.13 | ARI circ-mRNA=0.01 circ-protein=0.04 mRNA-protein=0.53
+   k=4 silhouette: circ=0.03 mRNA=0.08 protein=0.11 | ARI circ-mRNA=0.06 circ-protein=0.10 mRNA-protein=0.47
+   Spearman |rho| (circ PC1 vs mRNA PC1..3): [np.float64(0.33), np.float64(0.15), np.float64(0.08)] | circ PC1 vs protein PC1..3: [np.float64(0.31), np.float64(0.18), np.float64(0.12)]
+
+figure saved
+python3 03_subtype_reanalysis.py  71.10s user 19.71s system 156% cpu 58.107 total

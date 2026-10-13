@@ -1,0 +1,50 @@
+
+=== circRNA-mRNA: design 200 x 500; cells missing (pre-imputation) in the 500 selected features: 0.4%; features with any NaN: 19
+   median (original)        significant edges= 5316  overlap with original= 5316  Jaccard=1.00  rho-vs-original rho=1.000  circ_PTN edges=94
+   complete-case            significant edges= 5327  overlap with original= 5315  Jaccard=1.00  rho-vs-original rho=1.000  circ_PTN edges=94
+   kNN (k=5)                significant edges= 5294  overlap with original= 5287  Jaccard=0.99  rho-vs-original rho=0.999  circ_PTN edges=93
+   iterative (MICE-like)    significant edges= 5316  overlap with original= 5301  Jaccard=0.99  rho-vs-original rho=0.997  circ_PTN edges=94
+
+=== circRNA-protein: design 200 x 500; cells missing (pre-imputation) in the 500 selected features: 1.9%; features with any NaN: 66
+   median (original)        significant edges= 7333  overlap with original= 7333  Jaccard=1.00  rho-vs-original rho=1.000  circ_PTN edges=30
+   complete-case            significant edges= 7421  overlap with original= 7327  Jaccard=0.99  rho-vs-original rho=0.999  circ_PTN edges=33
+   kNN (k=5)                significant edges= 7441  overlap with original= 7300  Jaccard=0.98  rho-vs-original rho=0.996  circ_PTN edges=33
+   iterative (MICE-like)    significant edges= 7486  overlap with original= 7297  Jaccard=0.97  rho-vs-original rho=0.995  circ_PTN edges=31
+
+=== Zero inflation / detection prevalence
+  Of the 200 circRNAs selected by variance for the original screen: detection prevalence <20% for 67, <50% for 106; median 0.42
+  (of all 3,670 circRNAs: median prevalence 0.041; 782 have >=20%)
+  Unbiased screen: 782 circRNAs (prevalence>=20%) x 34582 mRNAs = 27.0M tests; significant edges = 521161; circRNAs with >=1 edge = 782
+  Top 10 circRNAs by degree in unbiased screen: [('chr19_23358430_23362725_ZNF91', 5435), ('chr19_6702127_6702579_C3', 5035), ('chr1_8541214_8557523_RERE', 4856), ('chr9_16727797_16738485_BNC2', 4518), ('chr7_23611171_23611553_CCDC126', 3843), ('chr16_85633914_85634132_GSE1', 3837), ('chr10_115461941_115469329_ATRNL1', 3822), ('chr6_72307258_72333835_RIMS1', 3728), ('chr8_140739018_140752316_PTK2', 3613), ('chr6_158312051_158314268_TULP4', 3441)]
+  circ_PTN degree = 1771; rank = 78 of 782
+  Degree vs detection prevalence (Spearman): 0.31; vs mean log expression: 0.29
+  permutation null (3 reps) edges: [0, 1, 0]
+
+=== Technical-depth adjustment (partial Spearman controlling for per-sample #detected circRNAs)
+  depth only                      : edges 4520 (original 5316; retained 3581 = 67%); circ_PTN edges 90; circ_PTN-PTN partial rho=0.822
+      top circRNA by degree after adjustment: [('chr19_23358430_23362725_ZNF91', 189), ('chr1_8541214_8557523_RERE', 165), ('chr6_159682474_159688242_SOD2', 146), ('chr7_158759486_158764853_ESYT2', 146), ('chr21_29321221_29329693_BACH1', 116)]
+  depth + mRNA PC1-2 (stringent)  : edges 787 (original 5316; retained 478 = 9%); circ_PTN edges 18; circ_PTN-PTN partial rho=0.778
+      top circRNA by degree after adjustment: [('chr7_148846470_148847305_EZH2', 52), ('chr9_100498765_100516771_MSANTD3-TMEFF1', 48), ('chr19_18539371_18539720_FKBP8', 36), ('chr8_60741259_60743097_CHD7', 35), ('chr2_55025086_55028220_RTN4', 30)]
+
+=== Host-gene co-variation
+  circRNAs (prevalence>=20%) with host gene measured: 777; median rho(circ,host mRNA)=0.36; fraction rho>0 = 0.97; fraction rho>=0.3 = 0.60
+  random circ-gene pairs: median rho=-0.01; fraction rho>=0.3 = 0.019; Mann-Whitney p=2.1e-186
+  circ_PTN ~ PTN protein | PTN mRNA: partial rho=-0.062, p=0.55  (raw rho circ-protein 0.511; mRNA-protein rho=0.66)
+
+=== 'circRNA-protein correlation stronger than circRNA-mRNA correlation' (post-transcriptional claim)
+  PTN-ELOVL2: rho_mRNA=0.515, rho_protein=0.547; |rho_prot|-|rho_mRNA|=0.032, 95% bootstrap CI [-0.028, 0.100] -> CI includes 0 (no evidence of difference)
+  HIPK3-PSPH: rho_mRNA=-0.494, rho_protein=-0.505; |rho_prot|-|rho_mRNA|=0.011, 95% bootstrap CI [-0.105, 0.132] -> CI includes 0 (no evidence of difference)
+  7138 significant circRNA-protein edges have a measured mRNA; protein stronger in 75%; median diff=0.068; selection note: edges were selected for significance in the PROTEIN layer, which biases this comparison toward 'protein stronger'
+  Over ALL 200 x 476 circRNA-gene pairs (no significance selection): |rho_prot| > |rho_mRNA| in 48.8% (expected ~50% under no difference)
+
+=== Positive control: mRNA vs protein of the same gene (n=98)
+  genes with both mRNA and protein: 9945; median Spearman = 0.48; fraction positive = 0.97; fraction rho>=0.3 = 0.75
+
+=== Numbers quoted in the manuscript vs recomputation (Spearman, n=98)
+  circ_PTN vs NES mRNA: rho=0.492  p=2.69e-07
+  circ_PTN vs PTPRZ1 mRNA: rho=0.553  p=3.48e-09
+  circ_PTN vs FABP7 mRNA: rho=0.437  p=6.71e-06
+  circ_PTN vs PTN mRNA: rho=0.817  p=9.80e-25
+  circ_PTN vs PTN protein: rho=0.511  p=7.36e-08
+  circ_PTN vs ELOVL2 protein: rho=0.547  p=5.48e-09
+  circ_HIPK3 vs PSPH protein: rho=-0.505  p=1.15e-07

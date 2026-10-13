@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+output/
+data/cptac/*
+!data/cptac/.gitkeep
+*.pkl
+.idea/
+.vscode/

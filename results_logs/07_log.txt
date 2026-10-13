@@ -1,0 +1,52 @@
+External samples: {'primary_GBM': 26, 'healthy_brain': 18, 'blood': 7, 'recurrent_GBM': 3}
+
+External per-group QC (number of distinct BSJ per sample; median [min-max]):
+  blood          n= 7  circRNAs/sample median 13342 [8493-15760];  BSJ reads median 156085
+  healthy_brain  n=18  circRNAs/sample median 5299 [2336-8832];  BSJ reads median 34956
+  primary_GBM    n=26  circRNAs/sample median 1462 [498-5678];  BSJ reads median 6365
+  recurrent_GBM  n= 3  circRNAs/sample median 3592 [3060-5130];  BSJ reads median 24156
+
+CPTAC circRNAs with an exact-junction BSJ in GSE196695 (liftover hg38->hg19, +-2 nt): 3520 / 3670
+   of which exact (0 nt): 3520 ; within 1-2 nt: 0
+
+Replication of CPTAC circRNAs in external GBM (>=1 of 29 tumours), by CPTAC detection prevalence:
+  prevalence [0.00,0.05): n=2020  BSJ found in external GBM: 1756 ( 86.9%);  in >=25% of GBM tumours:  345 ( 17.1%)
+  prevalence [0.05,0.20): n= 868  BSJ found in external GBM:  859 ( 99.0%);  in >=25% of GBM tumours:  563 ( 64.9%)
+  prevalence [0.20,0.50): n= 395  BSJ found in external GBM:  394 ( 99.7%);  in >=25% of GBM tumours:  371 ( 93.9%)
+  prevalence [0.50,1.00): n= 387  BSJ found in external GBM:  387 (100.0%);  in >=25% of GBM tumours:  379 ( 97.9%)
+
+Abundance concordance (matched circRNAs detected in external GBM, n=3396): Spearman rho (CPTAC mean expression vs external mean BSJ reads) = 0.63; vs mean ratio = 0.50
+   prevalence concordance: rho(CPTAC prevalence, external GBM detection fraction) = 0.78
+
+Manuscript-highlighted circRNAs in GSE196695 (detected samples / n):  GBM(29)  healthy brain(18)
+      junction ratio: GBM mean 0.013 vs brain mean 0.034 (MWU p=0.000273)
+  PTN                  CPTAC prev 0.87 | ext BSJ chr7:136935977-136939721 (offset 0 nt): GBM 18/29, brain 16/18 (Fisher p=0.0911); mean BSJ reads GBM 5.90 vs brain 4.22 (MWU p=0.921)
+      junction ratio: GBM mean 0.501 vs brain mean 0.719 (MWU p=0.016)
+  VCAN                 CPTAC prev 0.95 | ext BSJ chr5:82832826-82838087 (offset 0 nt): GBM 27/29, brain 17/18 (Fisher p=1); mean BSJ reads GBM 89.83 vs brain 16.50 (MWU p=0.017)
+      junction ratio: GBM mean 0.582 vs brain mean 0.863 (MWU p=3.93e-08)
+  HIPK3                CPTAC prev 1.00 | ext BSJ chr11:33307959-33309057 (offset 0 nt): GBM 28/29, brain 18/18 (Fisher p=1); mean BSJ reads GBM 56.48 vs brain 202.39 (MWU p=1.41e-07)
+      junction ratio: GBM mean 0.196 vs brain mean 0.152 (MWU p=0.35)
+  RNF220               CPTAC prev 0.31 | ext BSJ chr1:44877653-44878394 (offset 0 nt): GBM 21/29, brain 11/18 (Fisher p=0.524); mean BSJ reads GBM 5.34 vs brain 3.11 (MWU p=0.353)
+      junction ratio: GBM mean 0.227 vs brain mean 0.202 (MWU p=0.817)
+  DNAJC6               CPTAC prev 0.85 | ext BSJ chr1:65830318-65831879 (offset 0 nt): GBM 23/29, brain 13/18 (Fisher p=0.726); mean BSJ reads GBM 13.59 vs brain 43.89 (MWU p=0.0239)
+      junction ratio: GBM mean 0.251 vs brain mean 0.721 (MWU p=1.28e-07)
+  FAT3                 CPTAC prev 0.81 | ext BSJ chr11:92085262-92088570 (offset 0 nt): GBM 20/29, brain 18/18 (Fisher p=0.00832); mean BSJ reads GBM 11.38 vs brain 69.78 (MWU p=4.48e-08)
+      junction ratio: GBM mean 0.147 vs brain mean 0.297 (MWU p=0.00253)
+  ATRNL1               CPTAC prev 0.36 | ext BSJ chr10:116879949-116931050 (offset 0 nt): GBM 16/29, brain 18/18 (Fisher p=0.000578); mean BSJ reads GBM 9.86 vs brain 96.06 (MWU p=1.64e-08)
+      junction ratio: GBM mean 0.025 vs brain mean 0.087 (MWU p=4.95e-06)
+  EDIL3                CPTAC prev 0.10 | ext BSJ chr5:83356119-83362425 (offset 0 nt): GBM 10/29, brain 17/18 (Fisher p=4.83e-05); mean BSJ reads GBM 2.52 vs brain 14.83 (MWU p=4.38e-06)
+      junction ratio: GBM mean 0.001 vs brain mean 0.000 (MWU p=0.457)
+  GRB10(top RF)        CPTAC prev 0.11 | ext BSJ chr7:50737419-50771605 (offset 0 nt): GBM  1/29, brain  0/18 (Fisher p=1); mean BSJ reads GBM 0.10 vs brain 0.00 (MWU p=0.457)
+      junction ratio: GBM mean 0.373 vs brain mean 0.387 (MWU p=0.254)
+  ZNF91 (top degree)   CPTAC prev 0.83 | ext BSJ chr19:23541232-23545527 (offset 0 nt): GBM 27/29, brain 13/18 (Fisher p=0.0892); mean BSJ reads GBM 19.45 vs brain 25.89 (MWU p=0.449)
+      junction ratio: GBM mean 0.162 vs brain mean 0.387 (MWU p=3.9e-05)
+  RERE (2nd degree)    CPTAC prev 0.82 | ext BSJ chr1:8601273-8617582 (offset 0 nt): GBM 23/29, brain 16/18 (Fisher p=0.692); mean BSJ reads GBM 9.83 vs brain 48.28 (MWU p=7.94e-06)
+
+BSJs inside the PTN locus (hg19) in external data:
+                            n  reads
+k                                  
+chr7:136935977-136939721  34    247
+chr7:136935977-136969515   1      2
+chr7:137027814-137028051   1      2
+
+GBM vs healthy brain (junction ratio) among 2682 well-detected, CPTAC-matched circRNAs: FDR<0.05 higher in GBM = 48, higher in brain = 1939

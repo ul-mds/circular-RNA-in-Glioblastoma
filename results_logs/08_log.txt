@@ -1,0 +1,6 @@
+samples passing expert pathology review: 91 of 98
+circ_PTN vs PTN mRNA: all rho=0.817, pass-only rho=0.816
+circ_PTN vs PTN protein: all rho=0.511, pass-only rho=0.509
+host-gene rho median: all=0.36 (n=777), pass-only=0.36
+Cox circ_PTN + age + sex (all, n=95, events=61): HR=0.91 [0.70-1.19] p=0.50
+Cox circ_PTN + age + sex (pass-only, n=88, events=56): HR=0.93 [0.71-1.23] p=0.62

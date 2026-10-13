@@ -1,0 +1,32 @@
+[1] circRNA-miRNA screen: 300 x 100 = 30000 tests; significant pairs = 6
+                         circRNA           miRNA  rho_imputed   fdr  n_miRNA_observed  pct_miRNA_imputed  rho_complete_case  p_complete_case  circ_detect_prev  mir_n_unique_imputed sign_expected_for_sponge  sign_consistent_with_sponge
+     chr5_83537007_83542268_VCAN  hsa-miR-222-3p       -0.438 0.033                66             32.653             -0.558              0.0             0.949                    67                 negative                         True
+    chr5_84060300_84066606_EDIL3 hsa-miR-3200-3p        0.441 0.032                65             33.673              0.507              0.0             0.102                    65                 negative                        False
+    chr11_92352096_92355404_FAT3   hsa-miR-21-3p       -0.463 0.016                63             35.714             -0.538              0.0             0.806                    63                 negative                         True
+   chr1_65364635_65366196_DNAJC6  hsa-miR-340-5p        0.471 0.014                70             28.571              0.549              0.0             0.847                    71                 negative                        False
+chr10_115120185_115171292_ATRNL1  hsa-miR-769-5p        0.445 0.032                73             25.510              0.494              0.0             0.357                    73                 negative                        False
+   chr1_44411981_44412722_RNF220     hsa-miR-107        0.501 0.004                65             33.673              0.598              0.0             0.306                    65                 negative                        False
+Pairs with NEGATIVE rho (sponge-consistent): 2 of 6
+   permutation null (200 reps): mean significant pairs = 0.05, max = 1, P(null>=6) = 0.000
+   unadjusted null hits (p<.05 & |rho|>=.3): mean 72 of 30000
+
+[2] Sequence-level seed-site analysis (circRNA spliced sequence, hg38 refGene exon structure)
+                         circRNA           miRNA  circ_len_nt  n_exon_segments  boundary_mismatch_nt  sites_8mer  sites_7mer_m8  sites_7mer_A1  total_sites  density_per_kb  p_vs_shuffled_seq
+     chr5_83537007_83542268_VCAN  hsa-miR-222-3p         5262                1                     0           0              1              0            1           0.190              0.425
+    chr5_84060300_84066606_EDIL3 hsa-miR-3200-3p          486                3                     0           0              0              0            0           0.000              1.000
+    chr11_92352096_92355404_FAT3   hsa-miR-21-3p         3309                1                     0           0              1              1            2           0.604              0.064
+   chr1_65364635_65366196_DNAJC6  hsa-miR-340-5p          350                3                     0           0              0              0            0           0.000              1.000
+chr10_115120185_115171292_ATRNL1  hsa-miR-769-5p         1055                7                     0           0              0              0            0           0.000              1.000
+   chr1_44411981_44412722_RNF220     hsa-miR-107          742                1                     0           0              0              0            0           0.000              1.000
+
+[3] Positive control: are TargetScan-predicted targets negatively correlated with their miRNA in this cohort?
+   miRNAs with >=55/98 observed values and a TargetScan family: 150
+   miRNAs evaluated: 138; targets more negatively correlated than non-targets (delta<0): 89 (64%); FDR<0.05: 46
+   median delta = -0.0100; sign test p = 8.36e-04; Wilcoxon p = 1.94e-04
+   pooled AUC (target more negative than non-target), median: 0.516
+    hsa-miR-222-3p in control: [[-0.0663, 0.0]] | observed in 66 /98
+    hsa-miR-3200-3p in control: not evaluable (too many missing / no TargetScan family) | observed in 65 /98
+    hsa-miR-21-3p in control: not evaluable (too many missing / no TargetScan family) | observed in 63 /98
+    hsa-miR-340-5p in control: [[0.0283, 1.0]] | observed in 70 /98
+    hsa-miR-769-5p in control: not evaluable (too many missing / no TargetScan family) | observed in 73 /98
+    hsa-miR-107 in control: [[-0.0126, 0.047]] | observed in 65 /98
