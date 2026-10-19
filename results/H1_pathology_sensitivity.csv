@@ -1,0 +1,6 @@
+analysis,all_samples,pass_only
+circ_PTN vs PTN mRNA (Spearman rho),0.8174912704332443,0.8158975808704704
+circ_PTN vs PTN protein (Spearman rho),0.5114769935199949,0.508720846036976
+"median host-gene rho, circRNAs with >=20% prevalence",0.3575924023163182,0.3605758543118379
+"circ_PTN HR per SD, adjusted for age and sex (all; n=95)",0.913713333533106,
+"circ_PTN HR per SD, adjusted for age and sex (pass-only; n=88)",,0.9329667346371249

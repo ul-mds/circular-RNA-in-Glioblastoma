@@ -1,0 +1,5 @@
+layer,rows_in_file,features_before_missing_filter,features_after_missing_filter_lt50pct,removed,pct_cells_missing_in_retained_features,pct_features_with_any_missing,pct_features_with_gt20pct_missing
+circRNA,3670,3670,3670,0,0.0,0.0,0.0
+mRNA,44963,44963,34594,10369,6.503634580964259,37.061340116783256,14.320402381915939
+protein,10997,10997,10409,588,3.187292786266202,15.14074358728024,5.975598040157556
+miRNA,2652,2652,284,2368,37.90241448692153,100.0,100.0

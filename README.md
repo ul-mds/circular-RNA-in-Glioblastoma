@@ -2,7 +2,7 @@
 
 This repository holds the analysis code for the research article:
 
-> Dogan S, Schnauß J, Leopold M, Kirsten T. Host gene expression and detection depth explain most circular RNA associations in a glioblastoma multi-omic cohort. Manuscript submitted to *BMC Genomic Data*.
+> Dogan S, Schnauß J, Leopold M, Kirsten T. Host gene expression and detection depth explain most circular RNA associations in a glioblastoma multi-omic cohort. Manuscript submitted to *BMC Genomics*.
 
 The scripts repeat a conventional circRNA co-expression workflow on the CPTAC glioblastoma cohort and then test whether hubs, clusters, microRNA-sponge pairs and survival associations survive depth adjustment, unfiltered screens, sequence checks and an independent dataset (GSE196695).
 
@@ -15,7 +15,7 @@ Repository: [https://github.com/ul-mds/circular-RNA-in-Glioblastoma](https://git
 | Path | Description |
 |------|-------------|
 | `scripts/` | Analysis scripts, numbered in the order they should be run |
-| `results/` | Derived tables used in the article (Tables S1 to S28) |
+| `results/` | Derived tables used in the article (main and supplementary tables; see Additional file 2 in the manuscript) |
 | `results_logs/` | Text logs from the runs that produced those tables |
 | `data/derived/` | Small cluster and signature files needed to compare with the first workflow |
 | `data/cptac/` | Empty placeholder for the public CPTAC files (not redistributed) |

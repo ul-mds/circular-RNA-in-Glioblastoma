@@ -1,0 +1,3 @@
+adjustment,n_edges,retained_of_original,pct_retained,circ_PTN_edges,circPTN_PTN_partial_rho
+depth only,4520,3581,67.36267870579383,90,0.8221258312037653
+depth + mRNA PC1-2 (stringent),787,478,8.991723100075244,18,0.7784683416533801
