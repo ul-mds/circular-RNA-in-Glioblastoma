@@ -8,7 +8,9 @@ The scripts repeat a conventional circRNA co-expression workflow on the CPTAC gl
 
 Corresponding author: Senol Dogan ([Senol.Dogan@medizin.uni-leipzig.de](mailto:Senol.Dogan@medizin.uni-leipzig.de)), Leipzig University.
 
-Repository: [https://github.com/ul-mds/circular-RNA-in-Glioblastoma](https://github.com/ul-mds/circular-RNA-in-Glioblastoma)
+Repository (public): [https://github.com/ul-mds/circular-RNA-in-Glioblastoma](https://github.com/ul-mds/circular-RNA-in-Glioblastoma)
+
+Code maintenance and commits: **SenolDogan** (Leipzig University; [Senol.Dogan@medizin.uni-leipzig.de](mailto:Senol.Dogan@medizin.uni-leipzig.de)).
 
 ## Contents
 
